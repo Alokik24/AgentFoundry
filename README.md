@@ -92,7 +92,7 @@ Visit: http://localhost:8000/autotasker/ping
 
 ## License
 
-MIT
+BSD 3-Clause
 
 
 ## Contributing
