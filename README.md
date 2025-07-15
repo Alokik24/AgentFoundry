@@ -1,4 +1,4 @@
-# 🤖 AgentFoundry – AutoTasker Agent
+# AgentFoundry – AutoTasker Agent
 
 **AgentFoundry** is an open-source developer platform to build, test, and deploy LLM-powered agents with memory, observability, and real-world integration.
 
@@ -10,13 +10,13 @@
 
 - FastAPI backend with async endpoints
 - PostgreSQL integration via SQLAlchemy
-- Modular agent design (LLM-based classification coming Day 3)
+- Modular agent design
 - AutoDocs with Swagger/OpenAPI
 - Scalable folder structure for multi-agent systems
 
 ---
 
-## 📁 Folder Structure
+## Folder Structure
 
 ```
 agentfoundry/
@@ -37,7 +37,7 @@ agentfoundry/
 
 ---
 
-## 🔧 Setup Instructions
+## Setup Instructions
 
 ### 1. Clone + Install
 ```bash
@@ -71,7 +71,7 @@ DATABASE_URL=postgresql+asyncpg://af_user:password@localhost:5432/agentfoundry
 
 ---
 
-## ▶️ Run Server
+## Run Server
 
 ```bash
 uvicorn agents.autotasker.main:app --reload
@@ -80,7 +80,7 @@ uvicorn agents.autotasker.main:app --reload
 Visit: http://localhost:8000/autotasker/ping
 
 
-## 🧠 Tech Stack
+## Tech Stack
 
 - FastAPI
 - PostgreSQL + asyncpg
@@ -90,11 +90,11 @@ Visit: http://localhost:8000/autotasker/ping
 
 ---
 
-## 📄 License
+## License
 
 MIT
 
 
-## 🤝 Contributing
+## Contributing
 
 This project is in active development. PRs welcome once public milestone is reached.
