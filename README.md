@@ -1,22 +1,27 @@
+
 # AgentFoundry – AutoTasker Agent
+
+[![License](https://img.shields.io/badge/license-BSD%203--Clause-blue.svg)](./LICENSE)
+[![Python](https://img.shields.io/badge/python-3.10+-blue.svg)](https://www.python.org/)
+[![Status](https://img.shields.io/badge/status-in%20progress-yellow.svg)]()
 
 **AgentFoundry** is an open-source developer platform to build, test, and deploy LLM-powered agents with memory, observability, and real-world integration.
 
-`AutoTasker` is the first module — a task classification + automation agent built using **FastAPI**, **PostgreSQL**, and **LLM models**.
+🧠 `AutoTasker` is the first module — a task classification + automation agent built using **FastAPI**, **PostgreSQL**, and **LLM logic**.
 
 ---
 
-## Features
+## 🚀 Features
 
-- FastAPI backend with async endpoints
+- Async FastAPI backend
 - PostgreSQL integration via SQLAlchemy
-- Modular agent design
-- AutoDocs with Swagger/OpenAPI
-- Scalable folder structure for multi-agent systems
+- Modular structure for agent plug-ins
+- OpenAPI auto-docs via Swagger
+- Production-ready folder setup
 
 ---
 
-## Folder Structure
+## 🗂 Folder Structure
 
 ```
 agentfoundry/
@@ -26,18 +31,18 @@ agentfoundry/
 │       ├── db.py           # PostgreSQL config
 │       ├── models.py       # SQLAlchemy models
 │       ├── schemas.py      # Pydantic validation
-│       ├── routes.py       # API routes
-│       └── agent.py        # GPT logic (coming soon)
+│       ├── routes.py       # REST API endpoints
+│       └── agent.py        # GPT agent logic (coming soon)
 ├── tests/                  # Unit tests
 │   └── test_routes.py
 ├── .env                    # Environment variables
-├── requirements.txt        # Dependencies
+├── requirements.txt        # Python dependencies
 └── README.md
 ```
 
 ---
 
-## Setup Instructions
+## ⚙️ Setup Instructions
 
 ### 1. Clone + Install
 ```bash
@@ -48,10 +53,12 @@ source venv/bin/activate
 pip install -r requirements.txt
 ```
 
-### 2. Set up PostgreSQL
+---
+
+### 2. PostgreSQL Setup
 
 ```bash
-# On Ubuntu
+# Ubuntu
 sudo apt install postgresql postgresql-contrib
 sudo -u postgres psql
 ```
@@ -64,37 +71,74 @@ GRANT ALL PRIVILEGES ON DATABASE agentfoundry TO af_user;
 \q
 ```
 
-Add `.env`:
-```
+Create a `.env` file:
+
+```env
 DATABASE_URL=postgresql+asyncpg://af_user:password@localhost:5432/agentfoundry
 ```
 
 ---
 
-## Run Server
+## Run the Server
 
 ```bash
 uvicorn agents.autotasker.main:app --reload
 ```
 
-Visit: http://localhost:8000/autotasker/ping
+Visit: [http://localhost:8000/docs](http://localhost:8000/docs) for Swagger UI  
+Health check: [http://localhost:8000/autotasker/ping](http://localhost:8000/autotasker/ping)
 
+---
 
 ## Tech Stack
 
-- FastAPI
-- PostgreSQL + asyncpg
-- Pydantic
-- SQLAlchemy
-- Uvicorn
+- [FastAPI](https://fastapi.tiangolo.com/)
+- [PostgreSQL](https://www.postgresql.org/)
+- [SQLAlchemy (Async)](https://docs.sqlalchemy.org/)
+- [Pydantic](https://docs.pydantic.dev/)
+- [Uvicorn](https://www.uvicorn.org/)
+
+---
+
+## Task API – REST Endpoints
+
+### 🔸 Create a Task
+```http
+POST /autotasker/tasks
+```
+
+### 🔸 Get All Tasks
+```http
+GET /autotasker/tasks
+```
+
+### 🔸 Get a Single Task
+```http
+GET /autotasker/tasks/{id}
+```
+
+### 🔸 Update a Task
+```http
+PUT /autotasker/tasks/{id}
+```
+
+### 🔸 Delete a Task
+```http
+DELETE /autotasker/tasks/{id}
+```
+
+> ℹ️ JSON payloads and responses are fully validated using Pydantic
 
 ---
 
 ## License
 
-BSD 3-Clause
+This project is licensed under the BSD 3-Clause License.  
+See the [LICENSE](./LICENSE) file for more details.
 
+---
 
 ## Contributing
 
-This project is in active development. PRs welcome once public milestone is reached.
+This project is under active development. PRs are welcome once public modules are stabilized.
+---
